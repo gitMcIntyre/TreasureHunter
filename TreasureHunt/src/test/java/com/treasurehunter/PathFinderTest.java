@@ -122,13 +122,28 @@ public class PathFinderTest {
 	
 	@Test
 	public void test_N_Elephant() {
-		List<String> paths = Arrays.asList("Walk,60 min,N");
+		List<String> paths = Arrays.asList("Elephant ride,60 min,N");
 		
 		finder.setPaths(paths);
 		
 		Optional<String> res = finder.findTreasure();
 		Assert.assertTrue(res.isPresent());
-		Assert.assertEquals("3 mile(s) to the North", res.get());
+		Assert.assertEquals("6 mile(s) to the North", res.get());
+	}
+
+	@Test
+	public void test_multiple_mode() {
+		List<String> paths = Arrays.asList("Walk,60 min,N", 
+				"Run,1 hour,N",
+				"horse gallop,1 hour,N",
+				"horse trot,1 hour,N",
+				"elephant ride,1 hour,N");
+		
+		finder.setPaths(paths);
+		
+		Optional<String> res = finder.findTreasure();
+		Assert.assertTrue(res.isPresent());
+		Assert.assertEquals("34 mile(s) to the North", res.get());
 	}
 
 }
