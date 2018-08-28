@@ -1,4 +1,4 @@
-package com.treasurehunter.service.impl;
+package com.treasurehunter;
 
 import java.util.Arrays;
 import java.util.List;
